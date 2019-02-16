@@ -1,0 +1,16 @@
+FROM ubuntu:trusty
+
+RUN apt-get update && apt-get install -y nginx nginx-extras apache2-utils
+
+VOLUME /media
+VOLUME /var/www/journal
+RUN rm /etc/nginx/sites-enabled/*
+
+RUN mkdir -p /var/dav/temp
+RUN usermod -aG sudo www-data \
+  && chown www-data:www-data -R /var/www/journal
+
+COPY files/ /
+RUN chmod +x /usr/local/bin/*
+
+CMD ["/bin/sh", "-c", "/usr/local/bin/nginx-entrypoint.sh"]
