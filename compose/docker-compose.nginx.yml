@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  webdav-nginx:
+    build:
+      context: ..
+      dockerfile: Dockerfile.nginx
+    environment:
+      - WEBDAV_DOMAIN
+      - WEBDAV_USER_DATA
+    image: ${DOCKER_IMAGE}
+    expose:
+      - 8080
+    volumes:
+      - ${WEBDAV_DIRECTORY}:/var/www/journal:rw
