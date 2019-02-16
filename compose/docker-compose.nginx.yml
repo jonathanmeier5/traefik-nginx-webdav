@@ -18,7 +18,7 @@ services:
     labels:
       - "traefik.docker.network=web"
       - "traefik.enable=true"
-      - "traefik.basic.frontend.rule=Host:${DOMAIN}"
+      - "traefik.basic.frontend.rule=Host:${WEBDAV_DOMAIN}"
       - "traefik.basic.port=8080"
       - "traefik.basic.protocol=http"
 

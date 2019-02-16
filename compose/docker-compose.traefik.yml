@@ -4,7 +4,7 @@ services:
   traefik:
     image: traefik:1.5.4
     restart: always
-    command: traefik --acme.domains='${DOMAIN}' --docker.domain='${DOMAIN}'
+    command: traefik --acme.domains='${WEBDAV_DOMAIN}' --docker.domain='${WEBDAV_DOMAIN}'
     ports:
       - 80:80
       - 443:443
