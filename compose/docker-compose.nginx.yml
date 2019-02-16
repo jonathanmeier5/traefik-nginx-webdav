@@ -12,3 +12,15 @@ services:
       - 8080
     volumes:
       - ${WEBDAV_DIRECTORY}:/var/www/journal:rw
+    networks:
+      - web
+    labels:
+      - "traefik.docker.network=web"
+      - "traefik.enable=true"
+      - "traefik.basic.frontend.rule=Host:${DOMAIN}"
+      - "traefik.basic.port=8080"
+      - "traefik.basic.protocol=http"
+
+networks:
+  web:
+    external: true
