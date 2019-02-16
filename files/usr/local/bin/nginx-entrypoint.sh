@@ -10,4 +10,4 @@ sed -i -e 's|${CERT_PATH}|'"$CERT_PATH"'|' -e 's|${WEBDAV_DOMAIN}|'"$WEBDAV_DOMA
 # inject user data
 echo $WEBDAV_USER_DATA > /etc/nginx/htpasswd
 
-nginx -g 'daemon off;'
+exec nginx -g 'daemon off;'
