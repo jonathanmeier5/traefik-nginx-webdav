@@ -1,12 +1,12 @@
 version: "3"
 
 services:
-  app:
+  test_app:
     image: python:3.6-stretch
     networks:
       - web
-    ports:
-      - 8000:8000
+    expose:
+      - 8000
     command: ["python", "-m", "http.server", "8000"]
     labels:
       - "traefik.docker.network=web"
