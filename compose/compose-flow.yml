@@ -2,5 +2,4 @@ profiles:
   local:
     - docker-compose.yml
     - traefik
-  test:
     - test
