@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile.nginx
     environment:
       - WEBDAV_DOMAIN
-      - WEBDAV_USER_DATA
       - WEBDAV_USERNAME
       - WEBDAV_PASSWORD
     image: ${DOCKER_IMAGE}
