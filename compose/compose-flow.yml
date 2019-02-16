@@ -3,3 +3,4 @@ profiles:
     - docker-compose.yml
     - traefik
     - test
+    - nginx
