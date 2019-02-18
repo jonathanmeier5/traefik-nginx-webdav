@@ -1,0 +1,12 @@
+FROM traefik:1.5.4
+MAINTAINER Jonathan Meier <jonathan.w.meier@gmail.com>
+
+RUN groupadd -g 10001 traefik && \
+    useradd -r -u 10001 -g traefik traefik && \
+    chown -R traefik:traefik /
+
+RUN setcap 'cap_net_bind_service=+ep' /bin/traefik
+
+USER traefik
+
+ENTRYPOINT ["/traefik"]
