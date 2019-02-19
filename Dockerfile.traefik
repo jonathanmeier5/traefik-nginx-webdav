@@ -1,11 +1,15 @@
 FROM traefik:raclette-alpine
 MAINTAINER Jonathan Meier <jonathan.w.meier@gmail.com>
 
-RUN groupadd -g 10001 traefik && \
-    useradd -r -u 10001 -g traefik traefik && \
-    chown -R traefik:traefik / && \
-    setcap 'cap_net_bind_service=+ep' /bin/traefik
+USER root
+
+RUN addgroup -S -g 10001 traefik && \
+    adduser -S -u 10001 -G traefik traefik
+
+RUN apk add --update alpine-sdk
+
+RUN chown -R traefik:traefik /usr/local/bin/traefik && \
+    setcap 'cap_net_bind_service=+ep' /usr/local/bin/traefik
 
 USER traefik
 
-ENTRYPOINT ["/traefik"]
