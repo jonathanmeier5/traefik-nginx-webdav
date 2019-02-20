@@ -39,7 +39,7 @@ pipenv shell
 
 From here we first need to install the packages specified in the Pipfile locally:
 ```
-pipenv install
+pipenv install --dev
 ```
 
 Now we can add appropriate environment variables to our `compose-flow` environments to get things up and running:
