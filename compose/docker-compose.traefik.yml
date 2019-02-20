@@ -12,7 +12,7 @@ services:
       - web
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ${TRAEFIK_CONFIG_DIR}/traefik.toml:/traefik.toml
+      - ${PROJECT_DIR}/traefik.toml:/traefik.toml
       - ${TRAEFIK_CONFIG_DIR}/acme.json:/acme.json
     container_name: traefik
 
