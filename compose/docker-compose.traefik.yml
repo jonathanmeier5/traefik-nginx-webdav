@@ -4,7 +4,7 @@ services:
   traefik:
     image: traefik:1.5.4
     restart: always
-    command: traefik --acme.domains='${WEBDAV_DOMAIN}' --docker.domain='${WEBDAV_DOMAIN}' --acme.email=${CERT_OWNER_EMAIL}
+    command: traefik --acme.domains='${ACME_DOMAINS}' --docker.domain='${WEBDAV_DOMAIN}' --acme.email=${CERT_OWNER_EMAIL}
     ports:
       - 80:80
       - 443:443
